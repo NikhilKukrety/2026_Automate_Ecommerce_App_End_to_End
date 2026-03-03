@@ -8,7 +8,7 @@ Tech Stack:
 
 Features:
 - BaseTest for driver lifecycle
-- BasePage fpr reusable methods
+- BasePage for reusable methods
 - Explicit wait handling
 - Modular design
 
