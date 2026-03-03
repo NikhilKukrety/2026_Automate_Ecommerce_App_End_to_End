@@ -1,4 +1,4 @@
-This is a complete end to end automation of a test ecommerce application. Built using different frameworks, design patterns and the use GitHub Copilot as the AI tool made the project integration successful.
+Developed a comprehensive end-to-end automation framework for an e-commerce application using industry-standard frameworks and design patterns. Integrated GitHub Copilot as AI-assisted tool to accelerate development, improve code consistency, and support seamless project integration.
 
 Tech Stack:
 - Java
@@ -15,4 +15,5 @@ Features:
 Future Scope:
 - Data Driven Testing
 - Cucumber Integration
+
 - CI/CD Integration
