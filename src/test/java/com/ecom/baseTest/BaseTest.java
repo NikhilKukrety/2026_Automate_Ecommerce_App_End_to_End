@@ -7,8 +7,10 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 	
-	protected WebDriver driver;
+	protected static WebDriver driver;
+	//Commenting this so that the browser is launched and closed for each scenario in the Hooks class, which is more suitable for Cucumber tests. If we keep the @BeforeClass and @AfterClass annotations here, the browser will be launched only once before all the tests and closed after all the tests, which may not be ideal for Cucumber scenarios that require a fresh browser instance for each scenario to ensure test isolation and reliability.
 	
+	/*
 	@BeforeClass
 	public void launchChromeBrowser()
 	{
@@ -28,6 +30,6 @@ public class BaseTest {
 	{
 		//Closing the browser and quitting the driver instance:
 		driver.quit();
-	}
+	}*/
 	
 }
