@@ -16,6 +16,7 @@ public class TestCases extends BaseTest {
 	{
 		//Creating an object of the SignInPage class to access its methods and perform the login operation and passing the driver as an argument to the constructor of the SignInPage class:
 		SignInPage signInPage = new SignInPage(driver);
+		signInPage.verifySuccessfulNavigationToSignInPage();
 		signInPage.enterEmail("test@gmail.com");
 		signInPage.enterPassword("Abcd@1234");
 		signInPage.clickLoginButton();
@@ -25,6 +26,7 @@ public class TestCases extends BaseTest {
 	public void testProductPreviewFunctionality()
 	{
 		HomePage homePage = new HomePage(driver);
+		homePage.verifySuccessfulNavigationToHomePage();
 		homePage.clickViewButton();
 	}
 	
@@ -32,6 +34,7 @@ public class TestCases extends BaseTest {
 	public void testAddToCartFunctionality()
 	{
 		ProductPreviewPage productPreviewPage = new ProductPreviewPage(driver);
+		productPreviewPage.verifySuccessfulNavigationToProductPreviewPage();
 		productPreviewPage.clickAddToCartButton();
 	}
 	
@@ -39,6 +42,7 @@ public class TestCases extends BaseTest {
 	public void testCartFunctionality()
 	{
 		ProductPreviewPage productPreviewPage = new ProductPreviewPage(driver);
+		productPreviewPage.verifySuccessfulNavigationToProductPreviewPage();
 		productPreviewPage.clickCartButton();
 	}
 	
@@ -46,6 +50,7 @@ public class TestCases extends BaseTest {
 	public void testCheckoutFunctionality()
 	{
 		CartPage cartPage = new CartPage(driver);
+		cartPage.verifySuccessfulNavigationToCartPage();
 		cartPage.clickCheckoutButton();
 	}
 	
@@ -53,6 +58,7 @@ public class TestCases extends BaseTest {
 	public void testPaymentPageFunctionality()
 	{
 		PaymentPage paymentPage = new PaymentPage(driver);
+		paymentPage.verifySuccessfulNavigationToPaymentPage();
 		paymentPage.enterCreditCardNumber("0111 1234 02222 3333");
 		paymentPage.enterCCVNumber("123");
 		paymentPage.enterNameOnCard("Nikhil Kukrety");
@@ -66,6 +72,7 @@ public class TestCases extends BaseTest {
 	public void testSignOutFunctionality()
 	{
 		OrderSuccessfulPage orderSuccessfulPage = new OrderSuccessfulPage(driver);
+		orderSuccessfulPage.verifySuccessfulNavigationToOrderSuccessfulPage();
 		orderSuccessfulPage.clickSignOutButton();
 		
 	}
