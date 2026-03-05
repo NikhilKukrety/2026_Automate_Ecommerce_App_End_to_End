@@ -8,7 +8,7 @@ Tech Stack:
 - Cucumber Integration
 
 Features:
-- BaseTest for driver lifecycle
+- BaseTest/Hooks for driver lifecycle
 - BasePage for reusable methods
 - Explicit wait handling
 - Modular design
