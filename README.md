@@ -5,6 +5,7 @@ Tech Stack:
 - Selenium
 - TestNG
 - Page Object Model
+- Cucumber Integration
 
 Features:
 - BaseTest for driver lifecycle
@@ -14,7 +15,5 @@ Features:
 
 Future Scope:
 - Data Driven Testing
-- Cucumber Integration
-
 - CI/CD Integration
 
