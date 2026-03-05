@@ -1,9 +1,9 @@
 Feature: Automating a test ecommerce application end to end for a product checkout from login to signout
-
-@EndToEndTest
-  Scenario: User should be able to login, add product to cart, checkout and signout successfully
+    
+@EndToEndTest1
+  Scenario Outline: User should be able to login, add product to cart, checkout and signout successfully
     Given User is on the login page of the test ecommerce application
-    When User enters valid username and password
+    When User enters valid "<username>" and "<password>"
     And User clicks on the login button
     Then User should be navigated to the test ecommernce application homepage
     When User clicks on View button for a product
@@ -17,4 +17,10 @@ Feature: Automating a test ecommerce application end to end for a product checko
     When User clicks on the signout button
     Then User should be signed out and redirected to the login page
     And browser should be closed
+    
+    
+Examples:
+  | username | password |
+  | test@gmail.com | Abcd@1234 |
+  | kukretynikhil4@gmail.com | Test@1234 |
     

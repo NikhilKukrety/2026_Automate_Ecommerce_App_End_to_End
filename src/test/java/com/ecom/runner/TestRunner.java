@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 			glue = {"com.ecom.stepDefinitions","com.ecom.hooks"},
 			plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports.json"},
 			monochrome = true,
-			tags = "@EndToEndTest"
+			tags = "@EndToEndTest1"
 			)
 	
 	public class TestRunner extends AbstractTestNGCucumberTests {

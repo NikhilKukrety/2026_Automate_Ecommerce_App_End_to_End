@@ -29,15 +29,15 @@ public class End_To_End_Flow_Step extends BaseTest {
 		//Initially chrome browser is launched using Hooks.java class and then the user is navigated to the login page of the test ecommerce application by calling the launchChromeBrowser() method from the BaseTest class, which is inherited by the Hooks class. So, we can assume that the user is already on the login page of the test ecommerce application at this step.
 		//Will add assertion here to verify that the user is on the login page of the test ecommerce application.
 	}
-
-	@When("User enters valid username and password")
-	public void user_enters_valid_username_and_password() {
-
-	    signInPage = new SignInPage(driver);
-	    signInPage.enterEmail("test@gmail.com");
-	    signInPage.enterPassword("Abcd@1234");
-	    
+	
+	@When("User enters valid {string} and {string}")
+	public void user_enters_valid(String email, String password) {
+	   
+		signInPage = new SignInPage(driver);
+	    signInPage.enterEmail(email);
+	    signInPage.enterPassword(password);
 	}
+
 
 	@And("User clicks on the login button")
 	public void user_clicks_on_the_login_button() {
