@@ -26,14 +26,13 @@ public class End_To_End_Flow_Step extends BaseTest {
 	@Given("User is on the login page of the test ecommerce application")
 	public void user_is_on_the_login_page_of_the_test_ecommerce_application() {
 		   
-		//Initially chrome browser is launched using Hooks.java class and then the user is navigated to the login page of the test ecommerce application by calling the launchChromeBrowser() method from the BaseTest class, which is inherited by the Hooks class. So, we can assume that the user is already on the login page of the test ecommerce application at this step.
-		//Will add assertion here to verify that the user is on the login page of the test ecommerce application.
+		signInPage = new SignInPage(driver);
+	    signInPage.verifySuccessfulNavigationToSignInPage();
 	}
 	
 	@When("User enters valid {string} and {string}")
 	public void user_enters_valid(String email, String password) {
 	   
-		signInPage = new SignInPage(driver);
 	    signInPage.enterEmail(email);
 	    signInPage.enterPassword(password);
 	}
@@ -49,22 +48,21 @@ public class End_To_End_Flow_Step extends BaseTest {
 	@Then("User should be navigated to the test ecommernce application homepage")
 	public void user_should_be_navigated_to_the_test_ecommernce_application_homepage() {
 	   
-		//Will add assertion here to verify that the user is navigated to the homepage of the test ecommerce application after successful login.
+		homePage = new HomePage(driver);
+	    homePage.verifySuccessfulNavigationToHomePage();
 	}
 
 	@When("User clicks on View button for a product")
 	public void user_clicks_on_view_button_for_a_product() {
 	    
-		
-		homePage = new HomePage(driver);
 	    homePage.clickViewButton();
-	    
+		productPreviewPage = new ProductPreviewPage(driver);
+	    productPreviewPage.verifySuccessfulNavigationToProductPreviewPage();
 	}
 
 	@And("User adds the product to the cart")
 	public void user_adds_the_product_to_the_cart() {
 	    
-		productPreviewPage = new ProductPreviewPage(driver);
 	    productPreviewPage.clickAddToCartButton();
 
 	}
@@ -79,22 +77,23 @@ public class End_To_End_Flow_Step extends BaseTest {
 	@Then("User should be navigated to the Checkout page")
 	public void user_should_be_navigated_to_the_checkout_page() {
 	    
-		//Will add assertion here to verify that the user is navigated to the checkout page of the test ecommerce application after clicking on the cart button.
+		cartPage = new CartPage(driver);
+	    cartPage.verifySuccessfulNavigationToCartPage();
 		
 	}
 
 	@When("User clicks on the checkout button")
 	public void user_clicks_on_the_checkout_button() {
 	    
-		cartPage = new CartPage(driver);
 	    cartPage.clickCheckoutButton();
+		paymentPage = new PaymentPage(driver);
+		paymentPage.verifySuccessfulNavigationToPaymentPage();
 		
 	}
 
 	@And("User enters the payment details")
 	public void user_enters_the_payment_details() {
 	    
-		paymentPage = new PaymentPage(driver);
 	    paymentPage.enterCreditCardNumber("0111 1234 02222 3333");
 	    paymentPage.enterCCVNumber("123");
 	    paymentPage.enterNameOnCard("Nikhil Kukrety");
@@ -113,14 +112,15 @@ public class End_To_End_Flow_Step extends BaseTest {
 	@Then("User should be able to complete the purchase successfully")
 	public void user_should_be_able_to_complete_the_purchase_successfully() {
 
-		//Will add assertion here to verify that the user is able to complete the purchase successfully and is navigated to the order successful page of the test ecommerce application after clicking on the place order button.
+		orderSuccessfulPage = new OrderSuccessfulPage(driver);
+		orderSuccessfulPage.verifySuccessfulNavigationToOrderSuccessfulPage();
 		
 	}
 
 	@When("User clicks on the signout button")
 	public void user_clicks_on_the_signout_button() {
 
-		orderSuccessfulPage = new OrderSuccessfulPage(driver);
+
 	    orderSuccessfulPage.clickSignOutButton();
 	    
 	}
@@ -128,7 +128,7 @@ public class End_To_End_Flow_Step extends BaseTest {
 	@Then("User should be signed out and redirected to the login page")
 	public void user_should_be_signed_out_and_redirected_to_the_login_page() {
 	    
-		//Will add assertion here to verify that the user is signed out successfully and is redirected to the login page of the test ecommerce application after clicking on the signout button.
+		signInPage.verifySuccessfulNavigationToSignInPage();
 	}
 
 	@And("browser should be closed")

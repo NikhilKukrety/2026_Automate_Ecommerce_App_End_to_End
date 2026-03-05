@@ -1,7 +1,12 @@
 package com.ecom.pom;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.ecom.basePage.BasePage;
 
@@ -20,4 +25,14 @@ public class HomePage extends BasePage {
 	{
 		elementToBeClicked(viewButton);
 	}
+	
+	//Method to verify if user is navigated to the login page successfully by verifying the presence of email field:
+		public void verifySuccessfulNavigationToHomePage()
+		{
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(viewButton));
+			//With By class, we have to follow below format to perform assertion on an element:
+			Assert.assertTrue(driver.findElement(viewButton).isDisplayed(), "User is not navigated to the home page successfully as View button is not found.");
+			System.out.println("User is navigated to the home page successfully as View button is found.");
+		}
 }
