@@ -1,4 +1,4 @@
-Developed a comprehensive end-to-end automation framework for an e-commerce application using industry-standard frameworks and design patterns. Integrated GitHub Copilot as AI-assisted tool to accelerate development, improve code consistency, and support seamless project integration.
+Developed a comprehensive end-to-end automation framework for an e-commerce application using industry-standard frameworks and design patterns. Integrated GitHub Copilot to accelerate development, improve code consistency, and support seamless project integration.
 
 Tech Stack:
 - Java
