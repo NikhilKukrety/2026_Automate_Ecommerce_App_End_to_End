@@ -8,6 +8,7 @@ import com.ecom.pom.OrderSuccessfulPage;
 import com.ecom.pom.PaymentPage;
 import com.ecom.pom.ProductPreviewPage;
 import com.ecom.pom.SignInPage;
+import com.ecom.utils.ConfigReader;
 
 @Listeners(com.ecom.listeners.Listeners.class) //This annotation is used to specify that the Listeners class should be used as a listener for the test execution.
 public class TestCases extends BaseTest {
@@ -19,8 +20,12 @@ public class TestCases extends BaseTest {
 		//Creating an object of the SignInPage class to access its methods and perform the login operation and passing the driver as an argument to the constructor of the SignInPage class:
 		SignInPage signInPage = new SignInPage(driver);
 		signInPage.verifySuccessfulNavigationToSignInPage();
-		signInPage.enterEmail("test@gmail.com");
-		signInPage.enterPassword("Abcd@1234");
+		//Creating an object of the ConfigReader class to read the configuration settings from the config.properties file, which contains key-value pairs of configuration settings for the test automation framework.
+		ConfigReader config = new ConfigReader();
+		//The getUsername() method is called to retrieve the value of the "username" property from the loaded properties file, allowing the test automation framework to access and utilize the specified username configuration for test execution.
+		signInPage.enterEmail(config.getUsername());
+		//The getPassword() method is called to retrieve the value of the "password" property from the loaded properties file, allowing the test automation framework to access and utilize the specified password configuration for test execution.
+		signInPage.enterPassword(config.getPassword());
 		signInPage.clickLoginButton();
 		HomePage homePage = new HomePage(driver);
 		homePage.verifySuccessfulNavigationToHomePage();

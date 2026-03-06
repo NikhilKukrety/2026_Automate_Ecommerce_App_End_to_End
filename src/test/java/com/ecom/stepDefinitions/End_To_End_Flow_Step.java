@@ -119,7 +119,6 @@ public class End_To_End_Flow_Step extends BaseTest {
 	@When("User clicks on the signout button")
 	public void user_clicks_on_the_signout_button() {
 
-
 	    orderSuccessfulPage.clickSignOutButton();
 	    
 	}

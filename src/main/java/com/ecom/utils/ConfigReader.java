@@ -48,4 +48,14 @@ public class ConfigReader {
 	    return Integer.parseInt(prop.getProperty("timeout"));
 	    }
 	
+	//Creating username method only for TestNG tests and not for Cucumber tests, as there is only 1 pair of username and password for TestNG tests. In Cucumber tests, we are using scenario outline for 2 or more pairs of username and password.
+	public String getUsername() {
+		return prop.getProperty("username");
 	}
+	
+	//Creating password method only for TestNG tests and not for Cucumber tests, as there is only 1 pair of username and password for TestNG tests. In Cucumber tests, we are using scenario outline for 2 or more pairs of username and password.
+	public String getPassword() {
+		return prop.getProperty("password");
+	}
+
+}
