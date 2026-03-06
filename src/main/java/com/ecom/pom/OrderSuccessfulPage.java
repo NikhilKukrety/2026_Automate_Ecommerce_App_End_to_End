@@ -20,8 +20,14 @@ public class OrderSuccessfulPage extends BasePage {
 	//Action method to click on the Sign Out button:
 	public void clickSignOutButton()
 	{
+		
+		//Move to the top of the page to ensure the Sign Out button is in view before clicking on it using JavascriptExecutor:
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollTo(0, 0);");
+		js.executeScript("window.scrollTo(document.body.scrollWidth, 0);");
+		
+		/*Move to the Sign Out button to ensure it is in view before clicking on it using Actions class's below method:
+		moveToElement(driver.findElement(signOutButton));*/
+		
 		//Wait for the Sign Out button to become clickable and then click on it:
 		elementToBeClicked(signOutButton);
 	}
