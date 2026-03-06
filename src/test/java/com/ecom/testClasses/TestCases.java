@@ -1,4 +1,5 @@
 package com.ecom.testClasses;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.ecom.baseTest.BaseTest;
 import com.ecom.pom.CartPage;
@@ -8,6 +9,7 @@ import com.ecom.pom.PaymentPage;
 import com.ecom.pom.ProductPreviewPage;
 import com.ecom.pom.SignInPage;
 
+@Listeners(com.ecom.listeners.Listeners.class)
 public class TestCases extends BaseTest {
 	
 	
@@ -20,6 +22,8 @@ public class TestCases extends BaseTest {
 		signInPage.enterEmail("test@gmail.com");
 		signInPage.enterPassword("Abcd@1234");
 		signInPage.clickLoginButton();
+		HomePage homePage = new HomePage(driver);
+		homePage.verifySuccessfulNavigationToHomePage();
 	}	
 	
 	@Test(dependsOnMethods = "testLoginFunctionality")
@@ -28,13 +32,14 @@ public class TestCases extends BaseTest {
 		HomePage homePage = new HomePage(driver);
 		homePage.verifySuccessfulNavigationToHomePage();
 		homePage.clickViewButton();
+		ProductPreviewPage productPreviewPage = new ProductPreviewPage(driver);
+		productPreviewPage.verifySuccessfulNavigationToProductPreviewPage();
 	}
 	
 	@Test(dependsOnMethods = "testProductPreviewFunctionality")
 	public void testAddToCartFunctionality()
 	{
 		ProductPreviewPage productPreviewPage = new ProductPreviewPage(driver);
-		productPreviewPage.verifySuccessfulNavigationToProductPreviewPage();
 		productPreviewPage.clickAddToCartButton();
 	}
 	
@@ -42,29 +47,32 @@ public class TestCases extends BaseTest {
 	public void testCartFunctionality()
 	{
 		ProductPreviewPage productPreviewPage = new ProductPreviewPage(driver);
-		productPreviewPage.verifySuccessfulNavigationToProductPreviewPage();
 		productPreviewPage.clickCartButton();
+		CartPage cartPage = new CartPage(driver);
+		cartPage.verifySuccessfulNavigationToCartPage();
 	}
 	
 	@Test(dependsOnMethods = "testCartFunctionality")
 	public void testCheckoutFunctionality()
 	{
 		CartPage cartPage = new CartPage(driver);
-		cartPage.verifySuccessfulNavigationToCartPage();
 		cartPage.clickCheckoutButton();
+		PaymentPage paymentPage = new PaymentPage(driver);
+		paymentPage.verifySuccessfulNavigationToPaymentPage();
 	}
 	
 	@Test(dependsOnMethods = "testCheckoutFunctionality")
 	public void testPaymentPageFunctionality()
 	{
 		PaymentPage paymentPage = new PaymentPage(driver);
-		paymentPage.verifySuccessfulNavigationToPaymentPage();
 		paymentPage.enterCreditCardNumber("0111 1234 02222 3333");
 		paymentPage.enterCCVNumber("123");
 		paymentPage.enterNameOnCard("Nikhil Kukrety");
 		paymentPage.enterCountry("India");
 		paymentPage.selectCountry();
 		paymentPage.clickPlaceOrderButton();
+		OrderSuccessfulPage orderSuccessfulPage = new OrderSuccessfulPage(driver);
+		orderSuccessfulPage.verifySuccessfulNavigationToOrderSuccessfulPage();
 		
 	}
 	
@@ -72,8 +80,9 @@ public class TestCases extends BaseTest {
 	public void testSignOutFunctionality()
 	{
 		OrderSuccessfulPage orderSuccessfulPage = new OrderSuccessfulPage(driver);
-		orderSuccessfulPage.verifySuccessfulNavigationToOrderSuccessfulPage();
 		orderSuccessfulPage.clickSignOutButton();
+		SignInPage signInPage = new SignInPage(driver);
+		signInPage.verifySuccessfulNavigationToSignInPage();
 		
 	}
 	

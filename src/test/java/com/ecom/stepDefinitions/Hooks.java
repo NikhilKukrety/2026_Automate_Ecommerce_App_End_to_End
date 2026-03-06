@@ -1,11 +1,14 @@
 package com.ecom.stepDefinitions;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.ecom.baseTest.BaseTest;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 public class Hooks extends BaseTest {
 	
@@ -17,9 +20,15 @@ public class Hooks extends BaseTest {
 		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
 	
 	}
-	
+
 	@After
-	public void tearDown() {
+	public void tearDown(Scenario scenario) {
+		
+		if(scenario.isFailed()) {
+			//Code to capture screenshot and attach it to the Cucumber report
+			byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.attach(screenshot, "image/png", scenario.getName());
+		}
 		
 		driver.quit();
 		
