@@ -15,11 +15,12 @@ Features:
 - TestNG Listeners Integration for Screenshot handling in case of failures
 - Modular design
 - Dynamic values handling using config file
+- Reporting Mechanism
 
 Future Scope:
 - Data Driven Testing
 - CI/CD Integration
-- Reporting Mechanism
+
 
 Author:
 - Nikhil Kukrety
