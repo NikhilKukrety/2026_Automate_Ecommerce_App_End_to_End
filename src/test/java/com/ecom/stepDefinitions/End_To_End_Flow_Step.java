@@ -71,8 +71,7 @@ public class End_To_End_Flow_Step extends BaseTest {
 	public void user_clicks_on_the_cart_button() {
 	   
 		productPreviewPage.clickCartButton();
-		cartPage = new CartPage(driver);
-	   
+		   
 	}
 
 	@Then("User should be navigated to the Checkout page")

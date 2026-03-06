@@ -39,6 +39,6 @@ public class SignInPage extends BasePage {
 	{
 		//With By class, we have to follow below format to perform assertion on an element:
 		Assert.assertTrue(driver.findElement(email).isDisplayed(), "User is not navigated to the login page successfully as email field is not found.");
-		System.out.println("User is navigated to the login page successfully as email field is found.");
+		
 	}
 }

@@ -20,12 +20,14 @@ public class CartPage extends BasePage {
 	//Storing the locator of the "Checkout" button using By class:
 	By checkoutButton = By.xpath("//button[normalize-space()='Checkout']");
 	By addToCartToastMessage = By.xpath("//div[@id='toast-container']");
+	By LoginSuccessfulToastMessage = By.xpath("(//div[normalize-space()='Login Successfully'])[2]");
 	
 	//Action method to click on the "Checkout" button:
 	public void clickCheckoutButton()
 	{
-		//First wait for the toast message to disappear:
-		invisibilityOfElementLocated(addToCartToastMessage);
+		//First wait for the toast messages to disappear:
+		//invisibilityOfElementLocated(addToCartToastMessage);
+		
 		//Now click on the "Checkout" button once the toast message is no longer visible:
 		driver.findElement(checkoutButton).click();
 	}
@@ -33,9 +35,11 @@ public class CartPage extends BasePage {
 	//Method to verify if user is navigated to the login page successfully by verifying the presence of email field:
 	public void verifySuccessfulNavigationToCartPage()
 	{
+		//Before we verify, that CheckOut button is displayed, we need to wait for the toast message to disappear as it may block the view of the Checkout button and cause the assertion to fail:
+		invisibilityOfElementLocated(addToCartToastMessage);
 		//With By class, we have to follow below format to perform assertion on an element:
 		Assert.assertTrue(driver.findElement(checkoutButton).isDisplayed(), "User is not navigated to the cart page successfully as Checkout button is not found.");
-		System.out.println("User is navigated to the cart page successfully as Checkout button is found.");
+		
 	}
 	
 }

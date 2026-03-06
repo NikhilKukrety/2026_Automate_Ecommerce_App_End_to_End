@@ -1,8 +1,11 @@
 package com.ecom.runner;
 
+import org.testng.annotations.Listeners;
+
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
+//@Listeners(com.ecom.listeners.Listeners.class)
 @CucumberOptions(
 			features = "src/test/java/com/ecom/resources",
 			glue = {"com.ecom.stepDefinitions","com.ecom.hooks"},

@@ -34,7 +34,7 @@ public class ProductPreviewPage extends BasePage {
 			{
 				//With By class, we have to follow below format to perform assertion on an element:
 				Assert.assertTrue(driver.findElement(addToCartButton).isDisplayed(), "User is not navigated to the Product Preview page successfully as Add to Cart button is not found.");
-				System.out.println("User is navigated to the Product Preview page successfully as Add to Cart button is found.");
+			    
 			}
 	
 

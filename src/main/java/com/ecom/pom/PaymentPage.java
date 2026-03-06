@@ -74,7 +74,7 @@ public class PaymentPage extends BasePage {
 		{
 			//With By class, we have to follow below format to perform assertion on an element:
 			Assert.assertTrue(driver.findElement(creditCardNumber).isDisplayed(), "User is not navigated to the payments page successfully as Credit Card Number field is not found.");
-			System.out.println("User is navigated to the payments page successfully as Credit Card Number field is found.");
+			
 		}
 	
 

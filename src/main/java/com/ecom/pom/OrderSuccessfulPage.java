@@ -31,6 +31,6 @@ public class OrderSuccessfulPage extends BasePage {
 			{
 				//With By class, we have to follow below format to perform assertion on an element:
 				Assert.assertTrue(driver.findElement(signOutButton).isDisplayed(), "User is not navigated to the Successful Order page successfully as SignOut Button is not found.");
-				System.out.println("User is navigated to the Successful Order page successfully as SignOut Button is found.");
+				
 			}
 }

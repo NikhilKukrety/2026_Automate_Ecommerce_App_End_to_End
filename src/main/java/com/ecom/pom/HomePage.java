@@ -33,6 +33,6 @@ public class HomePage extends BasePage {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(viewButton));
 			//With By class, we have to follow below format to perform assertion on an element:
 			Assert.assertTrue(driver.findElement(viewButton).isDisplayed(), "User is not navigated to the home page successfully as View button is not found.");
-			System.out.println("User is navigated to the home page successfully as View button is found.");
+			
 		}
 }
