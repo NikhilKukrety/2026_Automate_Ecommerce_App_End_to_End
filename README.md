@@ -2,18 +2,26 @@ Developed a comprehensive end-to-end automation framework for an e-commerce appl
 
 Tech Stack:
 - Java
-- Selenium
+- Selenium WebDriver
+- Maven
 - TestNG
-- Page Object Model
-- Cucumber Integration
+- Page Object Model (POM)
+- Cucumber Integration (BDD)
 
 Features:
 - BaseTest/Hooks for driver lifecycle
 - BasePage for reusable methods
 - Explicit wait handling
+- TestNG Listeners Integration for Screenshot handling in case of failures
 - Modular design
+- Dynamic values handling using config file
 
 Future Scope:
 - Data Driven Testing
 - CI/CD Integration
+- Reporting Mechanism
+
+Author:
+- Nikhil Kukrety
+- QA Automation Engineer
 
