@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+//It is a utility class that is responsible for reading the configuration settings from a properties file (config.properties) and providing methods to access those settings. 
 public class ConfigReader {
 	
 	Properties prop;

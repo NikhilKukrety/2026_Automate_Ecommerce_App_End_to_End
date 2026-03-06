@@ -34,6 +34,11 @@ public class BasePage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
 	}
 	
+	//Reusable method to wait for the visibility of an element located by a specific locator:
+	public void visibilityOfElementLocated(By locator) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
 	//Reusable method to move to an element located by a specific locator using Actions class:
 	public void moveToElement(WebElement locator) {
 		Actions actions = new Actions(driver);
