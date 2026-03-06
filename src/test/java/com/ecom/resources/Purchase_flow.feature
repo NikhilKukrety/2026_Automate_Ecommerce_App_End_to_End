@@ -5,7 +5,7 @@ Feature: Automating a test ecommerce application end to end for a product checko
     Given User is on the login page of the test ecommerce application
     When User enters valid "<username>" and "<password>"
     And User clicks on the login button
-    Then User should be navigated to the test ecommernce application homepage
+    Then User should be navigated to the test ecommerce application homepage
     When User clicks on View button for a product
     And User adds the product to the cart
     And user clicks on the cart button

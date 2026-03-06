@@ -1,7 +1,12 @@
 package com.ecom.stepDefinitions;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.ecom.baseTest.BaseTest;
@@ -22,9 +27,17 @@ public class Hooks extends BaseTest {
 	}
 
 	@After
-	public void tearDown(Scenario scenario) {
+	public void tearDown(Scenario scenario) throws IOException {
 		
 		if(scenario.isFailed()) {
+			TakesScreenshot ts = (TakesScreenshot) driver;
+	        File source = ts.getScreenshotAs(OutputType.FILE);
+	        File destination = new File("./target/Cucumber_Failure_screenshot.png");
+	        try {
+				FileUtils.copyFile(source, destination);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			//Code to capture screenshot and attach it to the Cucumber report
 			byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", scenario.getName());
@@ -32,6 +45,11 @@ public class Hooks extends BaseTest {
 		
 		driver.quit();
 		
+	}
+	
+	//Getter method to access the WebDriver instance to other classes:
+	public WebDriver getDriver() {
+		return driver;
 	}
 
 }

@@ -45,7 +45,7 @@ public class End_To_End_Flow_Step extends BaseTest {
 		
 	}
 
-	@Then("User should be navigated to the test ecommernce application homepage")
+	@Then("User should be navigated to the test ecommerce application homepage")
 	public void user_should_be_navigated_to_the_test_ecommernce_application_homepage() {
 	   
 		homePage = new HomePage(driver);
@@ -71,15 +71,15 @@ public class End_To_End_Flow_Step extends BaseTest {
 	public void user_clicks_on_the_cart_button() {
 	   
 		productPreviewPage.clickCartButton();
-		
+		cartPage = new CartPage(driver);
+	   
 	}
 
 	@Then("User should be navigated to the Checkout page")
 	public void user_should_be_navigated_to_the_checkout_page() {
 	    
 		cartPage = new CartPage(driver);
-	    cartPage.verifySuccessfulNavigationToCartPage();
-		
+		cartPage.verifySuccessfulNavigationToCartPage();
 	}
 
 	@When("User clicks on the checkout button")
