@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.ecom.utils.ConfigReader;
+
 public class BasePage {
 	
 	protected WebDriver driver;
@@ -18,7 +20,8 @@ public class BasePage {
 	
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(5000));
+		ConfigReader config = new ConfigReader();
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(config.getTimeoutInSeconds()));
 	}
 	
 	//Reusable method to click on an element after waiting for it to be clickable:

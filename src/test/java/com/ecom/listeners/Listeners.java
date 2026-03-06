@@ -36,7 +36,7 @@ public class Listeners implements ITestListener {
         //Code to capture screenshot and save it to a specific location:
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
-        File destination = new File("./target/TestNG_Failure_screenshot.png");
+        File destination = new File("./test-output/TestNG_Failure_screenshot.png");
         try {
 			FileUtils.copyFile(source, destination);
 		} catch (IOException e) {

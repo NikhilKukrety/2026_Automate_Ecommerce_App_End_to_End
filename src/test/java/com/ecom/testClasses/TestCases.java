@@ -9,7 +9,7 @@ import com.ecom.pom.PaymentPage;
 import com.ecom.pom.ProductPreviewPage;
 import com.ecom.pom.SignInPage;
 
-@Listeners(com.ecom.listeners.Listeners.class)
+@Listeners(com.ecom.listeners.Listeners.class) //This annotation is used to specify that the Listeners class should be used as a listener for the test execution.
 public class TestCases extends BaseTest {
 	
 	
