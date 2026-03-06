@@ -1,5 +1,8 @@
 package com.ecom.baseTest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,8 +15,9 @@ import com.ecom.utils.ConfigReader;
 public class BaseTest {
 	
 	protected static WebDriver driver;
-	//Commenting this so that the browser is launched and closed for each scenario in the Hooks class, which is more suitable for Cucumber tests. If we keep the @BeforeClass and @AfterClass annotations here, the browser will be launched only once before all the tests and closed after all the tests, which may not be ideal for Cucumber scenarios that require a fresh browser instance for each scenario to ensure test isolation and reliability.
 	
+	//It should be private (used within the same class for logging purposes) and static (shared among all instances of the BaseTest class) because it is used for logging messages related to the BaseTest class, and it does not need to be accessed or modified by other classes or instances. By making it private and static, we ensure that it is only accessible within the BaseTest class and that there is only one instance of the logger shared among all instances of the BaseTest class, which is sufficient for logging purposes in this context. Final because log reference should not be changed.
+	private static final Logger log = LogManager.getLogger(BaseTest.class);
 	
 	@BeforeClass
 	public void launchChromeBrowser()
@@ -23,6 +27,8 @@ public class BaseTest {
 				
 				//The getBrowser() method is called to retrieve the value of the "browser" property from the loaded properties file, allowing the test automation framework to access and utilize the specified browser configuration for test execution.
 				String browser = config.getBrowser();
+				//Logging the browser that is being launched using the Log4j logger, which will help in tracking the browser being used for test execution in the logs.
+				log.info("Launching browser: "+browser);
 				
 				if(browser.equalsIgnoreCase("chrome")) {
 					//Giving life to the driver by initializing it with the ChromeDriver class, which will launch the Chrome browser.
@@ -43,9 +49,9 @@ public class BaseTest {
 		
 		//Navigating to the URL of the application under test:
 		driver.get(config.getBaseUrl());
+		//Logging the URL that is being navigated to using the Log4j logger, which will help in tracking the application under test being accessed in the logs.
+		log.info("Navigating to URL: "+config.getBaseUrl());
 		
-
-
 }
 	
 	@AfterClass
@@ -53,6 +59,7 @@ public class BaseTest {
 	{
 		//Closing the browser and quitting the driver instance:
 		driver.quit();
+		log.info("Browser closed successfully.");
 	}
 	
 	//Getter method to access the WebDriver instance to other classes:
