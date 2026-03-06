@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 //@Listeners(com.ecom.listeners.Listeners.class)
 @CucumberOptions(
-			features = "src/test/java/com/ecom/resources",
+			features = "src/test/resources/features",
 			glue = {"com.ecom.stepDefinitions","com.ecom.hooks"},
 			plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/cucumber-reports.json"},
 			monochrome = true,
