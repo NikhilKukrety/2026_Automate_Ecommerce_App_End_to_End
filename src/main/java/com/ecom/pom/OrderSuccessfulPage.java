@@ -40,6 +40,7 @@ public class OrderSuccessfulPage extends BasePage {
 			{
 				//With By class, we have to follow below format to perform assertion on an element:
 				Assert.assertTrue(driver.findElement(signOutButton).isDisplayed(), "User is not navigated to the Successful Order page successfully as SignOut Button is not found.");
-				
+				//Also, because of this assertion in "main" folder, <scope>test</scope> is not working in pom.xml file during Jenkins run.
+				// So use this assertion in "test" folder in "TestClasses" directly to keep the <scope>test</scope> working in pom.xml file during Jenkins run.
 			}
 }

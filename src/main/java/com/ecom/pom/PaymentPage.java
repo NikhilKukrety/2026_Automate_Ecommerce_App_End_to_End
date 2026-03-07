@@ -70,7 +70,8 @@ public class PaymentPage extends BasePage {
 		{
 			//With By class, we have to follow below format to perform assertion on an element:
 			Assert.assertTrue(driver.findElement(creditCardNumber).isDisplayed(), "User is not navigated to the payments page successfully as Credit Card Number field is not found.");
-			
+			//Also, because of this assertion in "main" folder, <scope>test</scope> is not working in pom.xml file during Jenkins run.
+			// So use this assertion in "test" folder in "TestClasses" directly to keep the <scope>test</scope> working in pom.xml file during Jenkins run.
 		}
 	
 
