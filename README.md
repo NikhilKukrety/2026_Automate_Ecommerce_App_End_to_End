@@ -16,11 +16,12 @@ Features:
 - Modular design
 - Dynamic values handling using config file
 - Reporting Mechanism
-
-Future Scope:
-- Data Driven Testing
 - CI/CD Integration
 
+Future Scope:
+- Advanced Data Driven Testing
+- Parallel Test Execution
+- Browser Headless Mode
 
 Author:
 - Nikhil Kukrety
