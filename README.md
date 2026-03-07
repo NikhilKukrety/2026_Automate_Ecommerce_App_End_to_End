@@ -9,7 +9,7 @@ Tech Stack:
 - Cucumber Integration (BDD)
 
 Features:
-- BaseTest/Hooks for driver lifecycle
+- BaseTest and Hooks for driver lifecycle
 - BasePage for reusable methods
 - Explicit wait handling
 - TestNG Listeners Integration for Screenshot handling in case of failures
