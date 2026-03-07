@@ -2,6 +2,7 @@ package com.ecom.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import com.ecom.basePage.BasePage;
@@ -22,7 +23,10 @@ public class CartPage extends BasePage {
 	public void clickCheckoutButton()
 	{
 		//First wait for the toast messages to disappear:
-		//invisibilityOfElementLocated(addToCartToastMessage);
+		invisibilityOfElementLocated(addToCartToastMessage);
+		
+		//Adding below line explicitly as this test is flaky and we are making sure 100% that Checkout button is visible before clicking on it:
+		wait.until(ExpectedConditions.visibilityOfElementLocated(checkoutButton));
 		
 		//Now click on the "Checkout" button once the toast message is no longer visible:
 		driver.findElement(checkoutButton).click();
