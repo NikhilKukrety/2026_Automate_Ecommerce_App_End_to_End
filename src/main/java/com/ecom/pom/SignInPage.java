@@ -3,7 +3,11 @@ package com.ecom.pom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import com.ecom.basePage.BasePage;
@@ -17,10 +21,12 @@ public class SignInPage extends BasePage {
 		super(driver);
 	}
 	
+	
 	//Storing the locators of the elements in the SignInPage using By class:
 	By email = By.id("userEmail");
 	By password = By.id("userPassword");
-	By loginButton = By.id("login");
+	//By loginButton = By.id("login");
+	By loginButton = By.xpath("//input[@value='Login']");
 
 	//Action methods to perform the login operation:
 	public void enterEmail(String emailId)
@@ -33,11 +39,24 @@ public class SignInPage extends BasePage {
 	{
 		driver.findElement(password).sendKeys(pass);
 		log.info("Entered password: "+pass);
+		
 	}
 	
 	public void clickLoginButton()
 	{
-		driver.findElement(loginButton).click();
+		/*Use the Java Script executor (first 3 lines of code) to click login button when using headless mode.
+		 * This is because in headless mode, some elements may not be interactable using the standard WebDriver click method due to the absence of a visible UI,
+		 * and using JavaScript to click on the element can help bypass these issues and ensure that the click action is performed successfully.*/
+		WebElement element = driver.findElement(loginButton); //Changing the type of loginButton from By to WebElement to use it in JavaScript executor.
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
+		
+		//Use below code (3 lines) when not using headless mode for chrome browser (loginButton uses the By class here):
+		/*visibilityOfElementLocated(loginButton);
+		elementToBeClicked(loginButton);
+		driver.findElement(loginButton).click();*/
+		
+		//Logging the click action:
 		log.info("Clicked on the login button.");
 	}
 	

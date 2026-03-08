@@ -44,7 +44,8 @@ public class BasePage {
 		actions.scrollToElement(locator).perform();
 		
 	}
-			
+	
+				
 	
 }
 

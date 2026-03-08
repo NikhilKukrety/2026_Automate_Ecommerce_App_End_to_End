@@ -5,8 +5,11 @@ import org.apache.logging.log4j.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -31,21 +34,62 @@ public class BaseTest {
 				log.info("Launching browser: "+browser);
 				
 				if(browser.equalsIgnoreCase("chrome")) {
+					
+				    //Use below 4 lines of code if you want to run the cucumber tests in headless mode for chrome browser:
+					//Defining ChromeOptions to set specific options for the Chrome browser, such as running in headless mode, disabling extensions, or setting other preferences. This allows for customization of the browser behavior during test execution.
+		            ChromeOptions options = new ChromeOptions();
+		            //Add an argument for running in headless mode (no visible UI):
+		            options.addArguments("--headless=new");
+					//Maximizing the browser window to a particular size to ensure that the tests run in a consistent environment and to avoid any issues related to element visibility or layout that may arise when running in headless mode:
+					options.addArguments("--window-size=1920,1080");
+					 //Adding below line to disable GPU hardware acceleration, which can help improve performance and stability when running in headless mode, especially on systems that may have limited GPU resources or when running in environments where GPU support is not available:
+					options.addArguments("--disable-gpu");
 					//Giving life to the driver by initializing it with the ChromeDriver class, which will launch the Chrome browser.
-					 driver = new ChromeDriver();
+					 driver = new ChromeDriver(options);
+					 
+					 //Uncomment the below line when not using headless mode for chrome browser:
+					 //driver = new ChromeDriver();
 				}
 				else if (browser.equalsIgnoreCase("firefox")) {
-					//Code to initialize the WebDriver instance with FirefoxDriver for Firefox browser
-					driver = new FirefoxDriver();
+					
+					//User below 4 lines of code if you want to run the cucumber tests in headless mode for firefox browser:
+					//Defining FireFoxOptions to set specific options for the firefox browser, such as running in headless mode, disabling extensions, or setting other preferences. This allows for customization of the browser behavior during test execution.
+		            FirefoxOptions options = new FirefoxOptions();
+		            //Add an argument for running in headless mode (no visible UI):
+		            options.addArguments("--headless=new");
+					//Maximizing the browser window to a particular size to ensure that the tests run in a consistent environment and to avoid any issues related to element visibility or layout that may arise when running in headless mode:
+					options.addArguments("--window-size=1920,1080");
+					 //Adding below line to disable GPU hardware acceleration, which can help improve performance and stability when running in headless mode, especially on systems that may have limited GPU resources or when running in environments where GPU support is not available:
+					options.addArguments("--disable-gpu");
+					//Giving life to the driver by initializing it with the FirefoxDriver class, which will launch the Firefox browser.
+					driver = new FirefoxDriver(options);
+					 
+					 
+					//Uncomment the below line when not using headless mode for firefox browser:
+					//driver = new FirefoxDriver();
+
 				}
 				else if (browser.equalsIgnoreCase("edge")) {
-					//Code to initialize the WebDriver instance with EdgeDriver for Edge browser
-					driver = new EdgeDriver();
+
+					//User below 4 lines of code if you want to run the cucumber tests in headless mode for Edge browser:
+					//Defining EdgeOptions to set specific options for the Edge browser, such as running in headless mode, disabling extensions, or setting other preferences. This allows for customization of the browser behavior during test execution.
+		            EdgeOptions options = new EdgeOptions();
+		            //Add an argument for running in headless mode (no visible UI):
+		            options.addArguments("--headless=new");
+					//Maximizing the browser window to a particular size to ensure that the tests run in a consistent environment and to avoid any issues related to element visibility or layout that may arise when running in headless mode:
+					options.addArguments("--window-size=1920,1080");
+					 //Adding below line to disable GPU hardware acceleration, which can help improve performance and stability when running in headless mode, especially on systems that may have limited GPU resources or when running in environments where GPU support is not available:
+					options.addArguments("--disable-gpu");
+					//Giving life to the driver by initializing it with the EdgeDriver class, which will launch the Edge browser.
+					driver = new EdgeDriver(options);
+					
+					//Uncomment the below line when not using headless mode for Edge browser:
+					//driver = new EdgeDriver();
 					
 				}
 				
-		//Maximizing the browser window:
-		driver.manage().window().maximize();
+		//Use below code to maximize window when not using headless mode. It is applicable to all browsers:
+		//driver.manage().window().maximize();
 		
 		//Navigating to the URL of the application under test:
 		driver.get(config.getBaseUrl());

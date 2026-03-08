@@ -39,7 +39,7 @@ public class End_To_End_Flow_Step extends BaseTest {
 
 
 	@And("User clicks on the login button")
-	public void user_clicks_on_the_login_button() {
+	public void user_clicks_on_the_login_button(){
 	    
 	    signInPage.clickLoginButton();
 		
