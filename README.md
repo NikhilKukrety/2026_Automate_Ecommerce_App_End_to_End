@@ -23,7 +23,7 @@ Features:
 - TestNG.xml for Grouping and managing execution order
 
 Future Scope:
-- Cucumber Report in Jenkins
+- Additional Selenium Concepts
 
 
 Author:
