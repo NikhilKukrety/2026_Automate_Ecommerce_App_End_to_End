@@ -12,6 +12,7 @@ Features:
 - BaseTest and Hooks for driver lifecycle
 - BasePage for reusable methods
 - Explicit wait handling
+- Data Driven Testing using Scenario Outline
 - TestNG Listeners Integration for Screenshot handling in case of failures
 - Modular design
 - Dynamic values handling using config file
@@ -20,7 +21,6 @@ Features:
 - Email Reporting to the team
 
 Future Scope:
-- Advanced Data Driven Testing
 - Cucumber Reports in Jenkins
 - Browser Headless Mode
 - TestNG.xml for Grouping
