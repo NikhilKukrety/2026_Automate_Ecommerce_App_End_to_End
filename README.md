@@ -4,9 +4,9 @@ Tech Stack:
 - Java
 - Selenium WebDriver
 - Maven
-- TestNG
+- TestNG Framework
 - Page Object Model (POM)
-- Cucumber Integration (BDD)
+- Cucumber Integration (BDD Framework)
 
 Features:
 - BaseTest and Hooks for driver lifecycle
