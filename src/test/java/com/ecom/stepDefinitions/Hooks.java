@@ -43,7 +43,7 @@ public class Hooks extends BaseTest {
 			
 		    //Use below 4 lines of code if you want to run the cucumber tests in headless mode for chrome browser:
 			//Defining ChromeOptions to set specific options for the Chrome browser, such as running in headless mode, disabling extensions, or setting other preferences. This allows for customization of the browser behavior during test execution.
-            ChromeOptions options = new ChromeOptions();
+            /*ChromeOptions options = new ChromeOptions();
             //Add an argument for running in headless mode (no visible UI):
             options.addArguments("--headless=new");
 			//Maximizing the browser window to a particular size to ensure that the tests run in a consistent environment and to avoid any issues related to element visibility or layout that may arise when running in headless mode:
@@ -51,11 +51,10 @@ public class Hooks extends BaseTest {
 			 //Adding below line to disable GPU hardware acceleration, which can help improve performance and stability when running in headless mode, especially on systems that may have limited GPU resources or when running in environments where GPU support is not available:
 			options.addArguments("--disable-gpu");
 				//Giving life to the driver by initializing it with the ChromeDriver class, which will launch the Chrome browser.
-			driver = new ChromeDriver(options);
-			 
+			driver = new ChromeDriver(options);*/			 
 			 
 			 //Uncomment the below line when not using headless mode for chrome browser:
-			 //driver = new ChromeDriver();
+			 driver = new ChromeDriver();
 			 
 		}
 		else if (browser.equalsIgnoreCase("firefox")) {
@@ -96,7 +95,7 @@ public class Hooks extends BaseTest {
 		}
 		
 		//Use below code to maximize window when not using headless mode. It is applicable to all browsers:
-		//driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		
 		//Navigating to the URL of the application under test:
 		driver.get(config.getBaseUrl());
