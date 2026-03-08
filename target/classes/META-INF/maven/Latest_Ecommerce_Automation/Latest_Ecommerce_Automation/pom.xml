@@ -67,7 +67,7 @@
 </dependency>
 
 <!-- Source: https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-<!-- We need CORE and API LOG4j versions to fully benefit of logging mechanism -->
+<!-- We need CORE and API LOG4j dpenedecies to fully benefit of logging mechanism -->
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-core</artifactId>
