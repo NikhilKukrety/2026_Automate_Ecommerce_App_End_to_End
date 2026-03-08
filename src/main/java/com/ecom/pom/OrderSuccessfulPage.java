@@ -26,7 +26,7 @@ public class OrderSuccessfulPage extends BasePage {
 		js.executeScript("window.scrollTo(document.body.scrollWidth, 0);");
 		
 		//Wait for the Sign Out button to become visible before clicking on it:
-		//visibilityOfElementLocated(signOutButton);
+		visibilityOfElementLocated(signOutButton);
 		
 		/*Move to the Sign Out button to ensure it is in view before clicking on it using Actions class's below method:
 		moveToElement(driver.findElement(signOutButton));*/
