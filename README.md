@@ -15,13 +15,15 @@ Features:
 - TestNG Listeners Integration for Screenshot handling in case of failures
 - Modular design
 - Dynamic values handling using config file
-- Reporting Mechanism
-- CI/CD Integration
+- Cucumber and TestNG Reporting Mechanism
+- CI Integration with Jenkins
+- Email Reporting to the team
 
 Future Scope:
 - Advanced Data Driven Testing
-- Parallel Test Execution
+- Cucumber Reports in Jenkins
 - Browser Headless Mode
+- TestNG.xml for Grouping
 
 Author:
 - Nikhil Kukrety
