@@ -20,10 +20,11 @@ Features:
 - CI Integration with Jenkins
 - Email Reporting to the team
 - Option to run browsers in Headless Mode
+- TestNG.xml for Grouping and managing execution order
 
 Future Scope:
 - Cucumber Report in Jenkins
-- TestNG.xml for Grouping
+
 
 Author:
 - Nikhil Kukrety
