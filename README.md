@@ -19,10 +19,10 @@ Features:
 - Cucumber and TestNG Reporting Mechanism
 - CI Integration with Jenkins
 - Email Reporting to the team
+- Option to run browsers in Headless Mode
 
 Future Scope:
-- Cucumber Reports in Jenkins
-- Browser Headless Mode
+- Cucumber Report in Jenkins
 - TestNG.xml for Grouping
 
 Author:
