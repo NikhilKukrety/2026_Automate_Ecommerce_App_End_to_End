@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" > <!-- It tells TestNG that this file is TestNG suite file -->
+
+
+<suite name = "EcommerceSuite"> <!-- Suite represents the complete test execution set. Eg: Login tests, Cart tests, Order tests, etc -->
+
+
+<test name = "TestNGTests"> <!-- Test tag defines a group of test classes inside a suite. Eg: SmokeTest, RegressionTest, SanityTest, etc -->
+
+    <classes> <!-- It contains all test classes to execute. Eg: LoginTest, CartTest, CheckoutTest, etc -->
+    
+        <class name = "com.ecom.testClasses.TestCases"/> <!-- It defines the class name to run. Always writte as "package + class name -->
+        
+    </classes> <!-- Closing tag -->
+
+
+</test> <!-- Closing tag -->
+
+
+</suite> <!-- Closing tag -->
+
+<!-- Flow as shown below: -->
+<!-- Suite -> test -> classes -> class -->
+<!-- Suite start -> Test start -> Class run -> Suite end -->
