@@ -16,8 +16,7 @@ public class HomePage extends BasePage {
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
-	
-	//Adding this comment just to make changes to practice pull request concept
+
 	
 	//Storing the product preview button locator using By class:
 	By viewButton = By.xpath("//button[normalize-space()='View']");
