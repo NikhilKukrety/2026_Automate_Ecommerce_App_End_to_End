@@ -38,9 +38,9 @@ public class ConfigReader {
 	}
 	
 	//The getTimeout() method is a public method that retrieves the value of the "timeout" property from the loaded properties file, allowing other parts of the test automation framework to access and utilize the specified timeout configuration for test execution.
-	public String getTimeout() {
+	/*public String getTimeout() {
 		return prop.getProperty("timeout");
-	}
+	}*/
 	
 	//The getTimeoutInSeconds() method is a public method that retrieves the value of the "timeout" property from the loaded properties file, converts it from a String to an integer using Integer.parseInt(), and returns the timeout value in seconds, allowing other parts of the test automation framework to access and utilize the specified timeout configuration for test execution in a numerical format.
 	public int getTimeoutInSeconds() {
